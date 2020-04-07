@@ -1,0 +1,39 @@
+{
+  "name": "react-hooks-test",
+  "author": "Nico Martin - https://nico.dev",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "babel-eslint": "^10.1.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "prettier": "^2.0.4",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-livereload": "^1.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-visualizer": "^4.0.3",
+    "rollup-watch": "^4.3.1"
+  },
+  "scripts": {
+    "prod": "rollup -c --environment BUILD:production",
+    "dev": "rollup -c -w",
+    "lint": "eslint . --ext js,jsx"
+  }
+}

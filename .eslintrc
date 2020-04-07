@@ -1,0 +1,25 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "parser": "babel-eslint",
+  "extends": [
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-console": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "16.13.1"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  }
+}
