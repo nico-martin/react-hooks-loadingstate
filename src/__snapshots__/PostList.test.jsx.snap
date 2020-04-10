@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostList Snapshots loading renders correctly 1`] = `
+<div>
+  <h1>
+    Test
+  </h1>
+  <div>
+    <p>
+      loading..
+    </p>
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    reload
+  </button>
+</div>
+`;
+
+exports[`PostList Snapshots success renders correctly 1`] = `
+<div>
+  <h1>
+    Test
+  </h1>
+  <div>
+    <p>
+      loading..
+    </p>
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    reload
+  </button>
+</div>
+`;

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export const dataStates = {
   LOADING: 'LOADING',
@@ -13,18 +14,24 @@ export const useData = () => {
     data: [],
   });
 
-  React.useEffect(() => {
-    fetch(
-      'https://api.nico.dev/2PACX-1vSNjZItcRIaqBeN8xIBQNjphBUqgBEOo149_bUjFMLOGsByT0LXqaBF3C-zN44ThrDeEdB5Q_bJsW5B/?row=true&table=532894058&reverse=true'
-    )
-      .then((resp) => resp.json())
-      .then((posts) =>
+  const fetchData = () => {
+    setData({
+      ...data,
+      state: dataStates.LOADING,
+      error: '',
+      data: [],
+    });
+    axios
+      .get(
+        'https://api.nico.dev/2PACX-1vSNjZItcRIaqBeN8xIBQNjphBUqgBEOo149_bUjFMLOGsByT0LXqaBF3C-zN44ThrDeEdB5Q_bJsW5B/?row=true&table=532894058&reverse=true'
+      )
+      .then((resp) => {
         setData({
           ...data,
           state: dataStates.SUCCESS,
-          data: posts,
-        })
-      )
+          data: resp.data,
+        });
+      })
       .catch((err) =>
         setData({
           ...data,
@@ -32,7 +39,11 @@ export const useData = () => {
           error: 'Fetch failed',
         })
       );
+  };
+
+  React.useEffect(() => {
+    fetchData();
   }, []);
 
-  return data;
+  return { ...data, reload: () => fetchData() };
 };

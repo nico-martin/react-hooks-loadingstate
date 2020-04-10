@@ -2,7 +2,7 @@ import React from 'react';
 import { useData, dataStates } from './hooks/useData.jsx';
 
 const PostList = ({ title }) => {
-  const { state, error, data } = useData();
+  const { state, error, data, reload } = useData();
   return (
     <div>
       <h1>{title}</h1>
@@ -33,6 +33,7 @@ const PostList = ({ title }) => {
           ))}
         </ul>
       )}
+      <button onClick={() => reload()}>reload</button>
     </div>
   );
 };

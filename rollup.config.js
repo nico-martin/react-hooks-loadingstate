@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
+import json from 'rollup-plugin-json';
 import fs from 'fs';
 
 require('dotenv').config();
@@ -18,9 +19,10 @@ export default {
     format: 'cjs',
   },
   plugins: [
-    resolve(),
+    resolve({ jsnext: true, preferBuiltins: true, browser: true }),
     replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
     commonjs(),
+    json(),
     babel({
       exclude: 'node_modules/**',
     }),
