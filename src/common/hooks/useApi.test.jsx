@@ -2,7 +2,7 @@ import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { act } from 'react-test-renderer';
 import { apiDataStates } from '../constants.js';
-import useApi from './useApi';
+import useApi from './useApi.jsx';
 import axios from 'axios';
 
 jest.mock('axios');
@@ -45,11 +45,8 @@ describe('useApi Hook', () => {
 
   it('success state', async () => {
     axios.get.mockImplementationOnce(() => Promise.resolve(useApiMock));
-    const { result } = renderHook(() => useApi('lorem'));
-    axios.get.mockImplementationOnce(() => Promise.resolve(useApiMock));
-    await act(async () => {
-      result.current.reload();
-    });
+    const { result, waitForNextUpdate } = renderHook(() => useApi('lorem'));
+    await waitForNextUpdate();
 
     await expect(result.current).toMatchObject({
       data: useApiMock.data,
@@ -64,13 +61,8 @@ describe('useApi Hook', () => {
     axios.get.mockImplementationOnce(() =>
       Promise.reject(new Error(errorMessage))
     );
-    const { result } = renderHook(() => useApi('lorem'));
-    axios.get.mockImplementationOnce(() =>
-      Promise.reject(new Error(errorMessage))
-    );
-    await act(async () => {
-      result.current.reload();
-    });
+    const { result, waitForNextUpdate } = renderHook(() => useApi('lorem'));
+    await waitForNextUpdate();
 
     await expect(result.current).toMatchObject({
       data: [],

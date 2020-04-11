@@ -13,6 +13,7 @@ describe('PostList Snapshots', () => {
       state: 'LOADING',
       error: '',
       data: [],
+      reload: () => {},
     });
     const tree = renderer.create(<PostList title="Test" />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -23,6 +24,7 @@ describe('PostList Snapshots', () => {
       state: 'SUCCESS',
       error: '',
       data: useApiMock.data,
+      reload: () => {},
     });
     const tree = renderer.create(<PostList title="Test" />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -33,6 +35,7 @@ describe('PostList Snapshots', () => {
       state: 'ERROR',
       error: 'General Error',
       data: [],
+      reload: () => {},
     });
     const tree = renderer.create(<PostList title="Test" />).toJSON();
     expect(tree).toMatchSnapshot();

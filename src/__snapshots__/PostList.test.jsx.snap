@@ -1,47 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PostList Snapshots error renders correctly 1`] = `
-<div>
+<main>
   <h1>
     Test
   </h1>
-  <div>
-    <p>
-      <b>
-        ERROR:
-      </b>
-      <br />
-      General Error
-    </p>
-  </div>
+  <p>
+    <b
+      style={
+        Object {
+          "color": "red",
+        }
+      }
+    >
+      ERROR
+    </b>
+    <br />
+    General Error
+  </p>
   <button
     onClick={[Function]}
   >
     reload
   </button>
-</div>
+</main>
 `;
 
 exports[`PostList Snapshots loading renders correctly 1`] = `
-<div>
+<main>
   <h1>
     Test
   </h1>
-  <div>
-    <p>
-      loading..
-    </p>
-  </div>
+  <p>
+    loading..
+  </p>
   <button
     onClick={[Function]}
   >
     reload
   </button>
-</div>
+</main>
 `;
 
 exports[`PostList Snapshots success renders correctly 1`] = `
-<div>
+<main>
   <h1>
     Test
   </h1>
@@ -76,5 +78,5 @@ exports[`PostList Snapshots success renders correctly 1`] = `
   >
     reload
   </button>
-</div>
+</main>
 `;
