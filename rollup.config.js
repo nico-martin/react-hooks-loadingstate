@@ -5,6 +5,7 @@ import replace from 'rollup-plugin-replace';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import json from 'rollup-plugin-json';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 import fs from 'fs';
 
 require('dotenv').config();
@@ -15,6 +16,7 @@ const prod = process.env.BUILD === 'production';
 export default {
   input: 'src/main.jsx',
   output: {
+    sourcemap: !prod,
     file: 'dist/bundle.js',
     format: 'cjs',
   },
@@ -23,6 +25,7 @@ export default {
     replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
     commonjs(),
     json(),
+    sourcemaps(),
     babel({
       exclude: 'node_modules/**',
     }),

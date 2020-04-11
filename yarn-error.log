@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add --dev jest
+  C:\Program Files\nodejs\node.exe C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D rollup-plugin-sourcemaps'
 
 PATH: 
   C:\Users\nicos\Documents\Dev\react-hooks-test\node_modules\.bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\C:\ProgramData\ComposerSetup\binC:\ProgramData\ComposerSetup\bin;C:\wpcs\vendor\bin;C:\Program Files (x86)\Subversion\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\PuTTY\;C:\WINDOWS\System32\OpenSSH\C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Microsoft VS Code\binC:\ProgramData\ComposerSetup\bin;C:\WINDOWS\System32\OpenSSH\C:\ProgramData\ComposerSetup\binC:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DALC:\ProgramData\ComposerSetup\bin;C:\Users\nicos\AppData\Roaming\nvm;C:\Program Files\nodejsC:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\Microsoft VS Code\binC:\Program Files\Intel\WiFi\bin\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Microsoft VS Code\binC:\Program Files (x86)\Yarn\bin\C:\Program Files (x86)\Yarn\bin\;C:\WINDOWS\System32\OpenSSH\;C:\MAMP\bin\php\php7.0.21;C:\ProgramData\ComposerSetup\bin;C:\Ruby23\bin;C:\Ruby23-x64\bin;C:\Users\nicos\AppData\Local\Microsoft\WindowsApps;C:\Users\nicos\AppData\Roaming\Composer\vendor\bin;C:\MAMP\bin\php\php7.0.0;C:\Users\nicos\AppData\Roaming\npm;C:\MAMP\bin\mysql\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\nicos\AppData\Local\now-cli;C:\Users\nicos\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\nicos\AppData\Local\atom\bin;C:\Users\nicos\AppData\Local\Yarn\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
@@ -8,18 +8,23 @@ Yarn version:
   1.21.1
 
 Node version: 
-  10.17.0
+  12.13.1
 
 Platform: 
   win32 x64
 
 Trace: 
-  SyntaxError: C:\Users\nicos\Documents\Dev\react-hooks-test\package.json: Unexpected token { in JSON at position 1144
-      at JSON.parse (<anonymous>)
-      at C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
-      at C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+  Error: https://registry.yarnpkg.com/rollup-plugin-sourcemaps%27: Not found
+      at Request.params.callback [as _callback] (C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66947:18)
+      at Request.self.callback (C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140665:22)
+      at Request.emit (events.js:210:5)
+      at Request.<anonymous> (C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141637:10)
+      at Request.emit (events.js:210:5)
+      at IncomingMessage.<anonymous> (C:\Users\nicos\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141559:12)
+      at Object.onceWrapper (events.js:299:28)
+      at IncomingMessage.emit (events.js:215:7)
+      at endReadableNT (_stream_readable.js:1184:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -29,6 +34,7 @@ npm manifest:
     "version": "1.0.0",
     "main": "index.js",
     "dependencies": {
+      "axios": "^0.19.2",
       "react": "^16.13.1",
       "react-dom": "^16.13.1"
     },
@@ -39,15 +45,19 @@ npm manifest:
       "@babel/preset-react": "^7.9.4",
       "@rollup/plugin-commonjs": "^11.0.2",
       "@rollup/plugin-node-resolve": "^7.1.1",
+      "@testing-library/react-hooks": "^3.2.1",
       "babel-eslint": "^10.1.0",
       "dotenv": "^8.2.0",
       "eslint": "^6.8.0",
       "eslint-config-prettier": "^6.10.1",
       "eslint-plugin-prettier": "^3.1.2",
       "eslint-plugin-react": "^7.19.0",
+      "jest": "^25.3.0",
       "prettier": "^2.0.4",
+      "react-test-renderer": "^16.13.1",
       "rollup-plugin-babel": "^4.4.0",
       "rollup-plugin-commonjs": "^10.1.0",
+      "rollup-plugin-json": "^4.0.0",
       "rollup-plugin-livereload": "^1.1.0",
       "rollup-plugin-peer-deps-external": "^2.2.2",
       "rollup-plugin-replace": "^2.2.0",
@@ -58,13 +68,9 @@ npm manifest:
     "scripts": {
       "prod": "rollup -c --environment BUILD:production",
       "dev": "rollup -c -w",
-      "lint": "eslint . --ext js,jsx"
-    },
-  {
-    "scripts": {
+      "lint": "eslint . --ext js,jsx",
       "test": "jest"
     }
-  }
   }
 
 yarn manifest: 
@@ -922,7 +928,7 @@ Lockfile:
       core-js-pure "^3.0.0"
       regenerator-runtime "^0.13.4"
   
-  "@babel/runtime@^7.8.4":
+  "@babel/runtime@^7.5.4", "@babel/runtime@^7.8.4":
     version "7.9.2"
     resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
     integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
@@ -1206,6 +1212,14 @@ Lockfile:
     dependencies:
       type-detect "4.0.8"
   
+  "@testing-library/react-hooks@^3.2.1":
+    version "3.2.1"
+    resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-3.2.1.tgz#19b6caa048ef15faa69d439c469033873ea01294"
+    integrity sha512-1OB6Ksvlk6BCJA1xpj8/WWz0XVd1qRcgqdaFAq+xeC6l61Ucj0P6QpA5u+Db/x9gU4DCX8ziR5b66Mlfg0M2RA==
+    dependencies:
+      "@babel/runtime" "^7.5.4"
+      "@types/testing-library__react-hooks" "^3.0.0"
+  
   "@types/babel__core@^7.1.7":
     version "7.1.7"
     resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.7.tgz#1dacad8840364a57c98d0dd4855c6dd3752c6b89"
@@ -1279,6 +1293,26 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.19.1.tgz#33509849f8e679e4add158959fdb086440e9553f"
     integrity sha512-5qOlnZscTn4xxM5MeGXAMOsIOIKIbh9e85zJWfBRVPlRMEVawzoPhINYbRGkBZCI8LxvBe7tJCdWiarA99OZfQ==
   
+  "@types/prop-types@*":
+    version "15.7.3"
+    resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
+    integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+  
+  "@types/react-test-renderer@*":
+    version "16.9.2"
+    resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.9.2.tgz#e1c408831e8183e5ad748fdece02214a7c2ab6c5"
+    integrity sha512-4eJr1JFLIAlWhzDkBCkhrOIWOvOxcCAfQh+jiKg7l/nNZcCIL2MHl2dZhogIFKyHzedVWHaVP1Yydq/Ruu4agw==
+    dependencies:
+      "@types/react" "*"
+  
+  "@types/react@*":
+    version "16.9.34"
+    resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.34.tgz#f7d5e331c468f53affed17a8a4d488cd44ea9349"
+    integrity sha512-8AJlYMOfPe1KGLKyHpflCg5z46n0b5DbRfqDksxBLBTUpB75ypDBAO9eCUcjNwE6LCUslwTz00yyG/X9gaVtow==
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^2.2.0"
+  
   "@types/resolve@0.0.8":
     version "0.0.8"
     resolved "https://registry.yarnpkg.com/@types/resolve/-/resolve-0.0.8.tgz#f26074d238e02659e323ce1a13d041eee280e194"
@@ -1290,6 +1324,14 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
     integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
+  
+  "@types/testing-library__react-hooks@^3.0.0":
+    version "3.2.0"
+    resolved "https://registry.yarnpkg.com/@types/testing-library__react-hooks/-/testing-library__react-hooks-3.2.0.tgz#52f3a109bef06080e3b1e3ae7ea1c014ce859897"
+    integrity sha512-dE8iMTuR5lzB+MqnxlzORlXzXyCL0EKfzH0w/lau20OpkHD37EaWjZDz0iNG8b71iEtxT4XKGmSKAGVEqk46mw==
+    dependencies:
+      "@types/react" "*"
+      "@types/react-test-renderer" "*"
   
   "@types/yargs-parser@*":
     version "15.0.0"
@@ -1506,6 +1548,13 @@ Lockfile:
     version "1.9.1"
     resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
     integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
+  
+  axios@^0.19.2:
+    version "0.19.2"
+    resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+    integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+    dependencies:
+      follow-redirects "1.5.10"
   
   babel-eslint@^10.1.0:
     version "10.1.0"
@@ -1963,6 +2012,11 @@ Lockfile:
     dependencies:
       cssom "~0.3.6"
   
+  csstype@^2.2.0:
+    version "2.6.10"
+    resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.10.tgz#e63af50e66d7c266edb6b32909cfd0aabe03928b"
+    integrity sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==
+  
   dashdash@^1.12.0:
     version "1.14.1"
     resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -1978,6 +2032,13 @@ Lockfile:
       abab "^2.0.0"
       whatwg-mimetype "^2.2.0"
       whatwg-url "^7.0.0"
+  
+  debug@=3.1.0:
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+    integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
+    dependencies:
+      ms "2.0.0"
   
   debug@^2.2.0, debug@^2.3.3:
     version "2.6.9"
@@ -2554,6 +2615,13 @@ Lockfile:
     version "2.0.2"
     resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.2.tgz#4575b21e2bcee7434aa9be662f4b7b5f9c2b5138"
     integrity sha512-r5wGx7YeOwNWNlCA0wQ86zKyDLMQr+/RB8xy74M4hTphfmjlijTSSXGuH8rnvKZnfT9i+75zmd8jcKdMR4O6jA==
+  
+  follow-redirects@1.5.10:
+    version "1.5.10"
+    resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+    integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+    dependencies:
+      debug "=3.1.0"
   
   for-in@^1.0.1, for-in@^1.0.2:
     version "1.0.2"
@@ -4450,10 +4518,20 @@ Lockfile:
       prop-types "^15.6.2"
       scheduler "^0.19.1"
   
-  react-is@^16.12.0, react-is@^16.8.1:
+  react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.6:
     version "16.13.1"
     resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
     integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+  
+  react-test-renderer@^16.13.1:
+    version "16.13.1"
+    resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
+    integrity sha512-Sn2VRyOK2YJJldOqoh8Tn/lWQ+ZiKhyZTPtaO0Q6yNj+QDbmRkVFap6pZPy3YQk8DScRDfyqm/KxKYP9gCMRiQ==
+    dependencies:
+      object-assign "^4.1.1"
+      prop-types "^15.6.2"
+      react-is "^16.8.6"
+      scheduler "^0.19.1"
   
   react@^16.13.1:
     version "16.13.1"
@@ -4720,6 +4798,13 @@ Lockfile:
       resolve "^1.11.0"
       rollup-pluginutils "^2.8.1"
   
+  rollup-plugin-json@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-4.0.0.tgz#a18da0a4b30bf5ca1ee76ddb1422afbb84ae2b9e"
+    integrity sha512-hgb8N7Cgfw5SZAkb3jf0QXii6QX/FOkiIq2M7BAQIEydjHvTyxXHQiIzZaTFgx1GK0cRCHOCBHIyEkkLdWKxow==
+    dependencies:
+      rollup-pluginutils "^2.5.0"
+  
   rollup-plugin-livereload@^1.1.0:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/rollup-plugin-livereload/-/rollup-plugin-livereload-1.1.0.tgz#75b31b8223717cc45b409fc938642f454dbbd5cb"
@@ -4759,7 +4844,7 @@ Lockfile:
       source-map "^0.7.3"
       yargs "^15.0.0"
   
-  rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
+  rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
     version "2.8.2"
     resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
     integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==

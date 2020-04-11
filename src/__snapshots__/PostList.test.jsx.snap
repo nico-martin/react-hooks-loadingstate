@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PostList Snapshots error renders correctly 1`] = `
+<div>
+  <h1>
+    Test
+  </h1>
+  <div>
+    <p>
+      <b>
+        ERROR:
+      </b>
+      <br />
+      General Error
+    </p>
+  </div>
+  <button
+    onClick={[Function]}
+  >
+    reload
+  </button>
+</div>
+`;
+
 exports[`PostList Snapshots loading renders correctly 1`] = `
 <div>
   <h1>
@@ -23,11 +45,32 @@ exports[`PostList Snapshots success renders correctly 1`] = `
   <h1>
     Test
   </h1>
-  <div>
-    <p>
-      loading..
-    </p>
-  </div>
+  <ul>
+    <li>
+      <b>
+        Mocked Post 1
+      </b>
+      <br />
+      <a
+        href="https://css-tricks.com/creating-scheduled-push-notifications/"
+        target="_blank"
+      >
+        https://css-tricks.com/creating-scheduled-push-notifications/
+      </a>
+    </li>
+    <li>
+      <b>
+        Mocked Post 2
+      </b>
+      <br />
+      <a
+        href="https://www.cyon.ch/blog/Progressive-Web-Apps-PWA"
+        target="_blank"
+      >
+        https://www.cyon.ch/blog/Progressive-Web-Apps-PWA
+      </a>
+    </li>
+  </ul>
   <button
     onClick={[Function]}
   >

@@ -1,12 +1,13 @@
 import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import { act } from 'react-test-renderer';
-import { useData, dataStates } from './useData';
+import { apiDataStates } from '../constants.js';
+import useApi from './useApi';
 import axios from 'axios';
 
 jest.mock('axios');
 
-export const useDataMock = {
+export const useApiMock = {
   data: [
     {
       key: 'Mocked Post 1',
@@ -29,10 +30,10 @@ export const useDataMock = {
   ],
 };
 
-describe('useData Hook', () => {
+describe('useApi Hook', () => {
   it('initial state', async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve(useDataMock));
-    const { result } = renderHook(() => useData());
+    axios.get.mockImplementationOnce(() => Promise.resolve(useApiMock));
+    const { result } = renderHook(() => useApi('lorem'));
 
     await expect(result.current).toMatchObject({
       data: [],
@@ -43,15 +44,15 @@ describe('useData Hook', () => {
   });
 
   it('success state', async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve(useDataMock));
-    const { result } = renderHook(() => useData());
-    axios.get.mockImplementationOnce(() => Promise.resolve(useDataMock));
+    axios.get.mockImplementationOnce(() => Promise.resolve(useApiMock));
+    const { result } = renderHook(() => useApi('lorem'));
+    axios.get.mockImplementationOnce(() => Promise.resolve(useApiMock));
     await act(async () => {
       result.current.reload();
     });
 
     await expect(result.current).toMatchObject({
-      data: useDataMock.data,
+      data: useApiMock.data,
       error: '',
       reload: expect.any(Function),
       state: 'SUCCESS',
@@ -63,7 +64,7 @@ describe('useData Hook', () => {
     axios.get.mockImplementationOnce(() =>
       Promise.reject(new Error(errorMessage))
     );
-    const { result } = renderHook(() => useData());
+    const { result } = renderHook(() => useApi('lorem'));
     axios.get.mockImplementationOnce(() =>
       Promise.reject(new Error(errorMessage))
     );
