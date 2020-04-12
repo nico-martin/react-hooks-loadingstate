@@ -37,5 +37,5 @@ export default (endpoint) => {
     fetchData();
   }, []);
 
-  return { ...data, reload: () => fetchData() };
+  return data;
 };

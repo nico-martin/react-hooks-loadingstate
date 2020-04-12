@@ -4,7 +4,7 @@ import { apiDataStates } from './common/constants.js';
 import { Error, Loading } from './common/Theme.jsx';
 
 const PostList = ({ title }) => {
-  const { state, error, data, reload } = useApi(
+  const { state, error, data } = useApi(
     'https://api.nico.dev/2PACX-1vSNjZItcRIaqBeN8xIBQNjphBUqgBEOo149_bUjFMLOGsByT0LXqaBF3C-zN44ThrDeEdB5Q_bJsW5B/?row=true&table=532894058&reverse=true'
   );
   const Content = () => {
@@ -34,7 +34,6 @@ const PostList = ({ title }) => {
     <main>
       <h1>{title}</h1>
       <Content />
-      <button onClick={() => reload()}>reload</button>
     </main>
   );
 };

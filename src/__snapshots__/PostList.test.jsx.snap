@@ -18,11 +18,6 @@ exports[`PostList Snapshots error renders correctly 1`] = `
     <br />
     General Error
   </p>
-  <button
-    onClick={[Function]}
-  >
-    reload
-  </button>
 </main>
 `;
 
@@ -34,11 +29,6 @@ exports[`PostList Snapshots loading renders correctly 1`] = `
   <p>
     loading..
   </p>
-  <button
-    onClick={[Function]}
-  >
-    reload
-  </button>
 </main>
 `;
 
@@ -73,10 +63,5 @@ exports[`PostList Snapshots success renders correctly 1`] = `
       </a>
     </li>
   </ul>
-  <button
-    onClick={[Function]}
-  >
-    reload
-  </button>
 </main>
 `;
