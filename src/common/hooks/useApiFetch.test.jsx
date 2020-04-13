@@ -1,11 +1,13 @@
 import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import useApiFetch from './useApiFetch.jsx';
-import axios from 'axios';
 
 export const useApiFetchMock = [
   {
-    hello: 'World',
+    title: 'Hello',
+  },
+  {
+    title: 'World',
   },
 ];
 
@@ -27,7 +29,7 @@ const mockFetchCleanUp = () => {
 };
 
 describe('useApi Hook', () => {
-  it('initial state', async () => {
+  it('initial state', () => {
     mockFetch(useApiFetchMock);
     const { result } = renderHook(() => useApiFetch('lorem'));
     mockFetchCleanUp();

@@ -14,20 +14,16 @@ export const useApiMock = {
 };
 
 describe('useApi Hook', () => {
-  it('initial state', async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve(useApiMock));
-    const { result } = renderHook(() => useApi('lorem'));
+  it('initial and success state', async () => {
+    axios.get.mockResolvedValue(useApiMock);
+    const { result, waitForNextUpdate } = renderHook(() => useApi('lorem'));
 
     expect(result.current).toMatchObject({
       data: [],
       error: '',
       state: 'LOADING',
     });
-  });
 
-  it('success state', async () => {
-    axios.get.mockImplementationOnce(() => Promise.resolve(useApiMock));
-    const { result, waitForNextUpdate } = renderHook(() => useApi('lorem'));
     await waitForNextUpdate();
 
     expect(result.current).toMatchObject({
