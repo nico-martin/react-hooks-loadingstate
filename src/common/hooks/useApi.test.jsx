@@ -5,7 +5,7 @@ import axios from 'axios';
 
 jest.mock('axios');
 
-export const useApiMock = {
+const useApiMock = {
   data: [{ title: 'Hello' }, { title: 'World' }],
 };
 

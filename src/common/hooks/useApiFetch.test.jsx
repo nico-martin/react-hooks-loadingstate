@@ -2,14 +2,7 @@ import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
 import useApiFetch from './useApiFetch.jsx';
 
-export const useApiFetchMock = [
-  {
-    title: 'Hello',
-  },
-  {
-    title: 'World',
-  },
-];
+const useApiFetchMock = [{ title: 'Hello' }, { title: 'World' }];
 
 const mockFetch = (mockData) => {
   global.fetch = jest.fn().mockImplementation(() =>
