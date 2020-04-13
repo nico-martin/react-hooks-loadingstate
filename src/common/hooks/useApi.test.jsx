@@ -6,11 +6,7 @@ import axios from 'axios';
 jest.mock('axios');
 
 export const useApiMock = {
-  data: [
-    {
-      hello: 'World',
-    },
-  ],
+  data: [{ title: 'Hello' }, { title: 'World' }],
 };
 
 describe('useApi Hook', () => {

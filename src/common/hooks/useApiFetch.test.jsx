@@ -29,30 +29,25 @@ const mockFetchCleanUp = () => {
 };
 
 describe('useApi Hook', () => {
-  it('initial state', () => {
+  it('initial and success state', async () => {
     mockFetch(useApiFetchMock);
-    const { result } = renderHook(() => useApiFetch('lorem'));
-    mockFetchCleanUp();
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useApiFetch('lorem')
+    );
     expect(result.current).toMatchObject({
       data: [],
       error: '',
       state: 'LOADING',
     });
-  });
 
-  it('success state', async () => {
-    mockFetch(useApiFetchMock);
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useApiFetch('lorem')
-    );
     await waitForNextUpdate();
-    mockFetchCleanUp();
 
     expect(result.current).toMatchObject({
       data: useApiFetchMock,
       error: '',
       state: 'SUCCESS',
     });
+    mockFetchCleanUp();
   });
 
   it('error state', async () => {
